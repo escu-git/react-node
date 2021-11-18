@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/socket.io/socket.io.js"></script>
+    <title>Chat</title>
+</head>
+<body>
+    <div class='chatContainer'>
+        <div class='userContainer' id='userContainer'>
+            <div id='userInfoArea'>
+            <input type="email" name="inputUser" id="inputUser" placeholder="Inserte su email">
+            <input type="nombre" name="inputUser" id="firstName" placeholder="Inserte su nombre">
+            <input type="surname" name="inputUser" id="surname" placeholder="Inserte su apellido">
+            <input type="alias" name="inputUser" id="alias" placeholder="Inserte su alias">
+            <input type="avatar" name="inputUser" id="avatar" placeholder="Inserte su avatar">
+            <input type="edad" name="inputUser" id="age" placeholder="Inserte su edad">
+            <button id='setUser'>SET</button>
+        </div>  
+        </div>
+        <span id='connectedUsers'></span>
+        <span id='userName'></span>
+        <div class='chatArea' id='chatArea'></div>
+        <div class='chatBoxContainer'>
+            <input type="text" name="chatBox" id="chatBox" placeholder="Presiona enter para enviar mensaje">
+            <button id='sendMessage'>SEND</button>
+        </div>
+    </div>
+    
+</body>
+<script src="/chat.js"></script>
+</html>
