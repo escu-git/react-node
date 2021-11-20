@@ -14,6 +14,7 @@ const NavBar = () => {
         .then(res=>res.json())
         .then(res=>console.log(res))
         login.setSession(null)
+        localStorage.removeItem('userSession');
     }
     useEffect(()=>{
 
