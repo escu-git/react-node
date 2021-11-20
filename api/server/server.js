@@ -39,7 +39,7 @@ app.use(session({
     }),
     cookie:{
         httpOnly:false,
-        maxAge: 40000
+        maxAge:parseInt(process.env.SESSION_MAXAGE)
     }
 }))
 

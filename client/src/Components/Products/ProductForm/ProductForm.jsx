@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 
-const ProductForm = () => {
+const ProductForm = ({productAdded}) => {
     const[producto, setProducto]=useState({});
 
     const handleChange = (event)=>{
@@ -17,6 +17,7 @@ const ProductForm = () => {
             headers:{'Content-Type':'application/json'},
             body:JSON.stringify(producto)
         }).then(res=>console.log(res))
+        productAdded(true);
     }
     return (
         <section className='productFormSection'>

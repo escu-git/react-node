@@ -6,13 +6,22 @@ export const LoginProvider = ({children})=>{
     const[session, setSession]=useState(null);
 
     useEffect(()=>{
-        fetch('http://localhost:3001/session',{
-            method:'get',
-            headers:{'Content-Type':'application/json'},
-        })
-        .then(res=>res.json())
-        .then(res=>console.log(res))
-    })
+
+        const expireComparison = (initial, actual)=>{
+            if(initial < actual){
+                return console.log('la sesión expiró')
+            }else{
+                return console.log('la sesión está activa')
+            }
+
+        }
+        const savedSession = localStorage.getItem('userSession');
+        if(savedSession !== undefined){
+            const actual = new Date;
+            expireComparison(JSON.parse(savedSession.expires), actual)
+            setSession(JSON.parse(savedSession));
+        }
+    },[])
     
     return <LoginContext.Provider value={{session, setSession}}>
             {children}

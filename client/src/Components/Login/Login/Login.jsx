@@ -24,13 +24,14 @@ const Login = () => {
         return result})
         .then(res=>{
             if(res){
-              console.log(res)
+                localStorage.setItem('userSession', JSON.stringify(res))
+                console.log(res)
                 login.setSession(res)
-                navigate('/productos')
             }else{
                 console.log('password incorrect')
             }
-          })
+          }).
+          then(res=>navigate('/productos'))
           console.log(login.session) //ACÁ YA NO APARECE LA SESIÓN
     }
     return (
