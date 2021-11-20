@@ -24,6 +24,7 @@ const corsOptions = {
     origin: 'http://localhost:3001',  //Your Client, do not write '*'
     credentials: true,
 };
+
 app.use(cors(corsOptions));
 
 setDatabase();
@@ -38,11 +39,9 @@ app.use(session({
     }),
     cookie:{
         httpOnly:false,
-        maxAge: 20000
+        maxAge: 40000
     }
 }))
-
-
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
