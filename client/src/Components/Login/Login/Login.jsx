@@ -25,7 +25,7 @@ const Login = () => {
         .then(res=>{
             if(res){
               console.log(res)
-                login.setSession(res)
+                localStorage.setItem('session', res)
                 navigate('/productos')
             }else{
                 console.log('password incorrect')
